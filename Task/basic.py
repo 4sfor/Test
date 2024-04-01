@@ -1,6 +1,6 @@
 from Task.DB import take_order
 
-
+import time
 #Получить ввод пользователя
 def take_number_orders():
     numbers = input("Введите номера заказов через пробел: ").split()
@@ -11,7 +11,7 @@ def take_number_orders():
 def take_shelf():
     shelf = {}
     for element in take_order(take_number_orders()):
-        key = element[2][0][3]
+        key = element[2][0][1]
         if key not in shelf:
             shelf[key] = []
         shelf[key].append(element)
@@ -26,10 +26,10 @@ def output():
         print(f'===Стеллаж {key}')
         for element_shelf in dict_result[key]:
             if len(element_shelf[2]) > 1:
-                print(f'{element_shelf[1][0]} (id={element_shelf[1][1]})\nзаказ {element_shelf[0][0]}, {element_shelf[0][2]} шт\n'
+                print(f'{element_shelf[1][0]} (id={element_shelf[1][1]})\nзаказ {element_shelf[0][0]}, {element_shelf[0][1]} шт\n'
                       f'доп стеллаж: {",".join([x[-1] for x in element_shelf[2][1:]])}\n')
             else:
-                print(f'{element_shelf[1][0]} (id={element_shelf[1][1]})\nзаказ {element_shelf[0][0]}, {element_shelf[0][2]} шт\n')
+                print(f'{element_shelf[1][0]} (id={element_shelf[1][1]})\nзаказ {element_shelf[0][0]}, {element_shelf[0][1]} шт\n')
 
 
 

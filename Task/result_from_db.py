@@ -4,7 +4,7 @@ def get_result(result_from_order_product, result_from_product, result_from_produ
     for order in result_from_order_product:
         for product in result_from_product:
             if order[1] in product:
-                result.append([order, product])
+                result.append([order[0::2], product])
 
     for pr_shelf in result_from_product_shelf:
         for shelf in result_from_shelf:
@@ -16,7 +16,7 @@ def get_result(result_from_order_product, result_from_product, result_from_produ
         element.append([])
         for product_shelf in result_from_product_shelf:
             if element[1][1] == product_shelf[2]:
-                element[2].append(product_shelf)
+                element[2].append(product_shelf[0::3])
         element[2].sort(key=lambda x: x[0], reverse=True)
 
 
