@@ -13,7 +13,7 @@ def connect_to_db():
         print('Connection failed', er)
 
 
-# получаем из базы информацию по заказам , функция генератор
+# получаем из базы информацию по заказам
 def take_order(args):
     cur = connect_to_db()
     number = ', '.join(args)
